@@ -25,9 +25,13 @@ app.get("/contact", (req, res) => {
   res.sendFile("./contact.html", { root: __dirname });
 });
 
-// menangkap id
-app.get("/product/:id/category/:idCat", (req, res) => {
-  res.send(`Product ID :  ${req.params.id} <br> Category ID : ${req.params.idCat}`);
+// // menangkap id
+// app.get("/product/:id/category/:idCat", (req, res) => {
+//   res.send(`Product ID :  ${req.params.id} <br> Category ID : ${req.params.idCat}`);
+// });   //http://localhost:3000/product/20/category/10
+
+app.get("/product/:id", (req, res) => {
+  res.send(`Product ID : ${req.params.id} <br> Category : ${req.query.category}`);
 });
 
 // Menggunakan method use untuk menjalankan/memanggil sebuah middleware/function karna node js nanti semuanya bisa kita anggap sebagai middleware
