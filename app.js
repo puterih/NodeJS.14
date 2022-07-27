@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-// request menggunakan method get misalkan halaman web nya menggunakan method get yg mengembalikan isi file
+// request menggunakan method get
 app.get("/", (req, res) => {
   // res.send("Hello World!");
   // res.json({
@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
   //   email: "husnulputeri@gmail.com",
   //   noHP: "088276557813",
   // });
-  // sendFile ketika misal kita mau mengembalikan isi dari sebuah file
+  // sendFile ketika misal kita mau mengembalikan isi dari sebuah file, sendFile bisa digunakan untuk ambil isi dari file lain yg static contohnya isi file css, menampilkan file gambar/file pdf
   res.sendFile("./index.html", { root: __dirname });
 });
 
@@ -23,6 +23,11 @@ app.get("/about", (req, res) => {
 app.get("/contact", (req, res) => {
   // res.send("Ini Adalah halaman Contact");
   res.sendFile("./contact.html", { root: __dirname });
+});
+
+// menangkap id
+app.get("/product/:id/category/:idCat", (req, res) => {
+  res.send(`Product ID :  ${req.params.id} <br> Category ID : ${req.params.idCat}`);
 });
 
 // Menggunakan method use untuk menjalankan/memanggil sebuah middleware/function karna node js nanti semuanya bisa kita anggap sebagai middleware
