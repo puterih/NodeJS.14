@@ -3,22 +3,26 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-// request menggunakan method get
+// request menggunakan method get misalkan halaman web nya menggunakan method get yg mengembalikan isi file
 app.get("/", (req, res) => {
   // res.send("Hello World!");
-  res.json({
-    nama: "Puteri",
-    email: "husnulputeri@gmail.com",
-    noHP: "088276557813",
-  });
+  // res.json({
+  //   nama: "Puteri",
+  //   email: "husnulputeri@gmail.com",
+  //   noHP: "088276557813",
+  // });
+  // sendFile ketika misal kita mau mengembalikan isi dari sebuah file
+  res.sendFile("./index.html", { root: __dirname });
 });
 
 app.get("/about", (req, res) => {
-  res.send("Ini Adalah halaman About");
+  // res.send("Ini Adalah halaman About");
+  res.sendFile("./about.html", { root: __dirname });
 });
 
 app.get("/contact", (req, res) => {
-  res.send("Ini Adalah halaman Contact");
+  // res.send("Ini Adalah halaman Contact");
+  res.sendFile("./contact.html", { root: __dirname });
 });
 
 // Menggunakan method use untuk menjalankan/memanggil sebuah middleware/function karna node js nanti semuanya bisa kita anggap sebagai middleware
