@@ -5,7 +5,12 @@ const port = 3000;
 
 // request menggunakan method get
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  // res.send("Hello World!");
+  res.json({
+    nama: "Puteri",
+    email: "husnulputeri@gmail.com",
+    noHP: "088276557813",
+  });
 });
 
 app.get("/about", (req, res) => {
